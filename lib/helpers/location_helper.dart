@@ -1,7 +1,4 @@
-const MAP_API_KEY =
-    'pk.eyJ1Ijoicmprb2wiLCJhIjoiY2tmdG1lN3NlMHN5cTMycGQ5cGtjYWg2NCJ9.by4s4fSFm5mn0DeOQicJpw';
-const MAP_SECRET_KEY =
-    'sk.eyJ1Ijoicmprb2wiLCJhIjoiY2tmdTFuaDR1MGMzcTJzcGsyc3VoOThmdCJ9.1FKmbJHbN4fupA2i99HA5A';
+import '../constants.dart';
 
 class LocationHelper {
   static String generateLocationPreviewImage(

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mapbox_gl/mapbox_gl.dart';
 
 import '../models/place.dart';
-import '../helpers/location_helper.dart';
+import '../constants.dart';
 
 class MapScreen extends StatefulWidget {
   final PlaceLocation initialLocation;
