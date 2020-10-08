@@ -21,33 +21,37 @@ class PlacesListScreen extends StatelessWidget {
       ),
       body: FutureBuilder(
         future: Provider.of<Places>(context, listen: false).fetchAndSetPlaces(),
-        builder: (ctx, snapshot) =>
-            snapshot.connectionState == ConnectionState.waiting
-                ? Center(
-                    child: CircularProgressIndicator(),
-                  )
-                : Consumer<Places>(
-                    child: Center(
-                      child: const Text('Got no places yet!'),
-                    ),
-                    builder: (BuildContext ctx, Places places, Widget ch) =>
-                        places.items.length <= 0
-                            ? ch
-                            : ListView.builder(
-                                itemBuilder: (itemBuilderContext, index) =>
-                                    ListTile(
-                                  leading: CircleAvatar(
-                                    backgroundImage:
-                                        FileImage(places.items[index].image),
-                                  ),
-                                  title: Text(places.items[index].title),
-                                  onTap: () {
-                                    // TODO go to detail page
-                                  },
-                                ),
-                                itemCount: places.items.length,
+        builder: (ctx, snapshot) => snapshot.connectionState ==
+                ConnectionState.waiting
+            ? Center(child: CircularProgressIndicator())
+            : Consumer<Places>(
+                child: Center(
+                  child: const Text('Got no places yet!'),
+                ),
+                builder: (
+                  BuildContext ctx,
+                  Places places,
+                  Widget ch,
+                ) =>
+                    places.items.length <= 0
+                        ? ch
+                        : ListView.builder(
+                            itemBuilder: (itemBuilderContext, index) =>
+                                ListTile(
+                              leading: CircleAvatar(
+                                backgroundImage:
+                                    FileImage(places.items[index].image),
                               ),
-                  ),
+                              title: Text(places.items[index].title),
+                              subtitle:
+                                  Text(places.items[index].location.address),
+                              onTap: () {
+                                // TODO go to detail page
+                              },
+                            ),
+                            itemCount: places.items.length,
+                          ),
+              ),
       ),
     );
   }
