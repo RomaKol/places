@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:location/location.dart';
-import 'package:mapbox_gl/mapbox_gl.dart';
+import 'package:latlong/latlong.dart';
 
 import '../helpers/location_helper.dart';
 import '../screens/map_screen.dart';
