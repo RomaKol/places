@@ -12,6 +12,10 @@ class Places with ChangeNotifier {
     return [...this._items];
   }
 
+  Place findById(String id) {
+    return this._items.firstWhere((place) => place.id == id);
+  }
+
   Future<void> addPlace(
     String title,
     File pickedImage,
@@ -53,7 +57,7 @@ class Places with ChangeNotifier {
             image: File(item['image']),
             location: PlaceLocation(
               latitude: item['loc_lat'],
-              longitude: item['log_lng'],
+              longitude: item['loc_lng'],
               address: item['address'],
             ),
           ),

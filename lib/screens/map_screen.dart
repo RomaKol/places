@@ -11,7 +11,6 @@ class MapScreen extends StatefulWidget {
 
   MapScreen({
     this.initialLocation =
-        // const PlaceLocation(latitude: 47.833793, longitude: 38.500626),
         const PlaceLocation(latitude: 49.423717, longitude: 26.986303),
     this.isSelecting = false,
   });
@@ -38,9 +37,11 @@ class _MapScreenState extends State<MapScreen> {
           if (widget.isSelecting)
             IconButton(
               icon: Icon(Icons.check),
-              onPressed: this._pickedLocation == null ? null : () {
-                Navigator.of(context).pop(this._pickedLocation);
-              },
+              onPressed: this._pickedLocation == null
+                  ? null
+                  : () {
+                      Navigator.of(context).pop(this._pickedLocation);
+                    },
             ),
         ],
       ),
